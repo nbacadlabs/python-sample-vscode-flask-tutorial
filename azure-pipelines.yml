@@ -20,12 +20,11 @@ steps:
   displayName: 'Use Python $(python.version)'
 
 - script: |
-    APPISNTALL=$" $echo +Laravan2010 | sudo -S";
-    $APPISNTALL python -m pip install --upgrade pip
-    $APPINSTALL pip install -r requirements.txt
+    echo -e $APPINSTALL | sudo python -m pip install --upgrade pip
+    echo -e $APPINSTALL | sudo pip install -r requirements.txt
   displayName: 'Install dependenc(ies)'
 
 - script: |
-    $APPISTALL pip install pytest pytest-azurepipelines
-    $APPINSTALL pytest
+    echo -e $APPINSTALL | pip install pytest pytest-azurepipelines
+    echo -e $APPINSTALL | sudo pytest
   displayName: 'pytest'
